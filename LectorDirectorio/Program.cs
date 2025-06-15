@@ -34,5 +34,9 @@ foreach (string archivo in archivos)
 
 string rutaRelativa = Path.Combine(path, "reporte_archivos.csv");
 
+if (!File.Exists(rutaRelativa))
+{
+    File.Create(rutaRelativa).Close();
+}
 
-
+File.WriteAllLines(rutaRelativa, lineasCSV);
